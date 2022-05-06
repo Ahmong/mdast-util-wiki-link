@@ -19,18 +19,22 @@
   },
   "repository": "https://github.com/landakram/mdast-util-wiki-link",
   "license": "MIT",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
+  "main": "src/index.js",
+  "main-old": "dist/index.cjs.js",
+  "module-old": "dist/index.esm.js",
+  "browser-old": "dist/index.umd.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "build": "rollup -c",
+    "start": "vite",
+    "watch": "vite build --watch",
+    "tsc": "tsc --noEmit",
+    "build": "vite build",
     "lint": "eslint src/",
     "prepare": "npm run build",
     "pretest": "npm run build",
-    "test": "npm run lint && mocha --require @babel/register test/index_test.js"
+    "test": "yarn run lint && mocha --require @babel/register test/index_test.js"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -47,7 +51,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "mdast-util-from-markdown": "^0.8.0",
     "micromark": "^2.10.1",
-    "micromark-extension-wiki-link": "^0.0.4",
+    "micromark-extension-wiki-link": "workspace:*",
     "mocha": "^8.2.0",
     "rollup": "^2.32.0",
     "unist-util-visit": "^2.0.3"
